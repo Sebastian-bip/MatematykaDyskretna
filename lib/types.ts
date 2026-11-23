@@ -1,4 +1,4 @@
-export type MainTabId = 'tematy' | 'zestaw-a' | 'zestaw-b' | 'zestaw-c' | 'narzedzia';
+export type MainTabId = 'tematy' | 'kolokwium-2025' | 'kolokwium-2022' | 'narzedzia';
 
 export interface GlossaryItem {
   term: string;
@@ -44,8 +44,20 @@ export interface ExamQuestion {
   finalSummary: string;
 }
 
+export type ExamSetId =
+  | 'zestaw-a'
+  | 'zestaw-b'
+  | 'zestaw-c'
+  | 'k22-arkusz-1'
+  | 'k22-arkusz-2'
+  | 'k22-arkusz-3'
+  | 'k22-arkusz-4'
+  | 'k22-arkusz-5';
+
 export interface ExamSet {
-  id: 'zestaw-a' | 'zestaw-b' | 'zestaw-c';
+  id: ExamSetId;
+  year: '2025/26' | '2022';
+  tabLabel: string;
   shortLabel: string;
   title: string;
   subtitle: string;

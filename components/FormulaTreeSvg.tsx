@@ -133,8 +133,8 @@ export default function FormulaTreeSvg({ formula, ast, caption }: FormulaTreeSvg
   if (!tree) return null;
 
   return (
-    <div className="mt-3 rounded-xl border border-[#E6E2D8] dark:border-[#2B333E] bg-[#FBF9F5] dark:bg-[#141A22] p-4 overflow-x-auto">
-      <div className="text-xs font-medium text-[#6B665C] dark:text-[#94A3B8] mb-2">
+    <div className="mt-3 rounded-xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#f7f1e3] dark:bg-[#141A22] p-4 overflow-x-auto">
+      <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8] mb-2">
         {caption ?? 'Drzewo struktury T(φ) — korzeń u góry, przejście pre-order daje notację polską'}
       </div>
       <div className="flex justify-center">
@@ -165,8 +165,8 @@ export default function FormulaTreeSvg({ formula, ast, caption }: FormulaTreeSvg
                 r={17}
                 className={
                   n.isAtom
-                    ? 'fill-white dark:fill-[#1E293B] stroke-[#1D4ED8] dark:stroke-[#60A5FA]'
-                    : 'fill-[#EFF6FF] dark:fill-[#1E3A8A]/50 stroke-[#2563EB] dark:stroke-[#3B82F6]'
+                    ? 'fill-[#fffdf7] dark:fill-[#1E293B] stroke-[#1D4ED8] dark:stroke-[#60A5FA]'
+                    : 'fill-[#eef4fb] dark:fill-[#1E3A8A]/50 stroke-[#2563EB] dark:stroke-[#3B82F6]'
                 }
                 strokeWidth={1.75}
               />
@@ -174,7 +174,7 @@ export default function FormulaTreeSvg({ formula, ast, caption }: FormulaTreeSvg
                 x={n.x}
                 y={n.y + 5}
                 textAnchor="middle"
-                className="font-mono text-[14px] font-semibold fill-[#1C1B18] dark:fill-[#F1F5F9]"
+                className="font-mono text-[14px] font-semibold fill-[#1c1917] dark:fill-[#F1F5F9]"
               >
                 {n.label}
               </text>

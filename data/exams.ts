@@ -6,6 +6,8 @@ export const EXAM_SETS: ExamSet[] = [
   // =========================================================================
   {
     id: 'zestaw-a',
+    year: '2025/26',
+    tabLabel: 'Zestaw A',
     shortLabel: 'Zestaw A (12 zadań)',
     title: 'Matematyka dyskretna z logiką | Kolokwium 2025/26 — Zestaw A',
     subtitle: 'Test wielokrotnego wyboru (1–2 poprawne)',
@@ -663,6 +665,8 @@ export const EXAM_SETS: ExamSet[] = [
   // =========================================================================
   {
     id: 'zestaw-b',
+    year: '2025/26',
+    tabLabel: 'Zestaw B',
     shortLabel: 'Zestaw B (12 zadań)',
     title: 'Matematyka dyskretna z logiką | Kolokwium 2025/26 — Zestaw B',
     subtitle: 'Test wielokrotnego wyboru (1–2 poprawne)',
@@ -1227,6 +1231,8 @@ export const EXAM_SETS: ExamSet[] = [
   // =========================================================================
   {
     id: 'zestaw-c',
+    year: '2025/26',
+    tabLabel: 'Zestaw C',
     shortLabel: 'Zestaw C (6 zadań)',
     title: 'Matematyka dyskretna z logiką | Kolokwium 2025/26 — Zestaw C (str. 2/2)',
     subtitle: 'Trzeci wariant drugiej strony arkusza (zad. 7–12)',
@@ -1491,3 +1497,9 @@ export const EXAM_SETS: ExamSet[] = [
     ],
   },
 ];
+
+export { EXAM_SETS_2022 } from './exams2022';
+import { EXAM_SETS_2022 as _EXAM_SETS_2022 } from './exams2022';
+
+export const ALL_EXAM_SETS: ExamSet[] = [...EXAM_SETS, ..._EXAM_SETS_2022];
+

@@ -11,7 +11,15 @@ import {
   scoreExamQuestion,
   toPolishNotation,
 } from './logic-engine';
-import { EXAM_SETS } from '../data/exams';
+import { EXAM_SETS, EXAM_SETS_2022, ALL_EXAM_SETS } from '../data/exams';
+import {
+  buildCookieHeader,
+  deserializeTaskIds,
+  parseCookieString,
+  serializeTaskIds,
+} from './cookies';
+import fs from 'node:fs';
+import path from 'node:path';
 
 test('Propositional logic engine verifies Zestaw A tasks 1–6 mathematically', () => {
   // A.1: (r ∨ p ∨ q → ¬p) → ¬p ∧ (q ∨ r)
@@ -166,17 +174,98 @@ test('UŁ Kolokwium scoring engine follows +1 / -1 / 0 and grade thresholds', ()
   assert.equal(getGradeFromPoints(17).grade, '5');
 });
 
-test('Every exam question in EXAM_SETS has 1 or 2 correct answers and complete metadata', () => {
-  const totalQuestions = EXAM_SETS.reduce((acc, s) => acc + s.questions.length, 0);
-  assert.equal(totalQuestions, 30);
-  for (const set of EXAM_SETS) {
+test('Every exam question in EXAM_SETS (2025/26) and EXAM_SETS_2022 has valid answers, photos and complete metadata', () => {
+  const total2025 = EXAM_SETS.reduce((acc, s) => acc + s.questions.length, 0);
+  const total2022 = EXAM_SETS_2022.reduce((acc, s) => acc + s.questions.length, 0);
+  assert.equal(total2025, 30);
+  assert.equal(total2022, 60);
+  assert.equal(ALL_EXAM_SETS.length, 8);
+
+  const seenIds = new Set<string>();
+  for (const set of ALL_EXAM_SETS) {
     for (const q of set.questions) {
+      assert.ok(!seenIds.has(q.id), `Duplicate question ID: ${q.id}`);
+      seenIds.add(q.id);
       assert.ok(
-        q.correctLetters.length === 1 || q.correctLetters.length === 2,
-        `Question ${q.id} should have 1 or 2 correct answers`
+        q.correctLetters.length >= 1 && q.correctLetters.length <= 3,
+        `Question ${q.id} should have 1 to 3 correct answers`
       );
       assert.equal(q.options.length, 4, `Question ${q.id} should have 4 options`);
-      assert.ok(q.steps.length >= 2, `Question ${q.id} should have step-by-step walkthrough`);
+      assert.ok(q.steps.length >= 1, `Question ${q.id} should have step-by-step walkthrough`);
+      const photoDiskPath = path.join(process.cwd(), 'public', q.photoSrc);
+      assert.ok(
+        fs.existsSync(photoDiskPath),
+        `Photo file missing for ${q.id}: ${photoDiskPath}`
+      );
     }
   }
+});
+
+test('Propositional logic engine verifies key Kolokwium 2022 tasks across Arkusze 1–5', () => {
+  // Arkusz 1 Q2: satisfiable not tautology
+  assert.equal(
+    analyzeFormula('(p -> q) & (q -> r) -> (p -> !r)').classification,
+    'spelnialna_nie_tautologia'
+  );
+  // Arkusz 1 Q5 & Q6
+  assert.equal(analyzeFormula('!(!(!p & !q) -> !r)').polish, '¬→¬∧¬p¬q¬r');
+  assert.equal(
+    toPolishNotation(parsePolishFormula('¬ → → r ∧ q ¬p ∨ → q ¬r p')),
+    toPolishNotation(parseInfixFormula('!((r -> (q & !p)) -> ((q -> !r) | p))'))
+  );
+  // Arkusz 1 Q7 DPN
+  assert.equal(areFormulasEquivalent('!(p -> (p & q))', '(p & !p) | (p & !q)'), true);
+
+  // Arkusz 2 Q2: contradiction!
+  assert.equal(
+    analyzeFormula('((q -> r) | (p -> !r)) -> ((r -> p) & r & !p)').classification,
+    'sprzeczna'
+  );
+  // Arkusz 2 Q7 DPN
+  assert.equal(areFormulasEquivalent('p -> (!p | q)', '(!p & !p) | (q & q)'), true);
+
+  // Arkusz 3 Q2, Q5, Q7
+  assert.equal(
+    analyzeFormula('((!p | r) & (!q | r) & (p | q)) -> !r').classification,
+    'spelnialna_nie_tautologia'
+  );
+  assert.equal(analyzeFormula('!(p & !q) -> !(!p -> r)').polish, '→¬∧p¬q¬→¬pr');
+  assert.equal(areFormulasEquivalent('(p & !q) -> !p', '!p | q'), true);
+
+  // Arkusz 4 Q2: contradiction, Q6 polish
+  assert.equal(
+    analyzeFormula('((p | q) -> r) & !(q -> r)').classification,
+    'sprzeczna'
+  );
+  assert.equal(
+    toPolishNotation(parsePolishFormula('¬ → → ¬ ∨ p q q → p q')),
+    toPolishNotation(parseInfixFormula('!((!(p | q) -> q) -> (p -> q))'))
+  );
+
+  // Arkusz 5 Q5, Q6, Q7
+  assert.equal(analyzeFormula('!(p -> q) | (q -> !r)').polish, '∨¬→pq→q¬r');
+  assert.equal(
+    toPolishNotation(parsePolishFormula('→ → ∧ p ¬q ¬p ∧ q r')),
+    toPolishNotation(parseInfixFormula('((p & !q) -> !p) -> (q & r)'))
+  );
+  assert.equal(areFormulasEquivalent('p -> (!p | !r)', '(!p & !p) | (!r & !r)'), true);
+});
+
+test('Cookie utilities parse, serialize, deserialize, and format cookie headers safely', () => {
+  const serialized = serializeTaskIds(['t1', 'a-1', 'k22-1-1', 'a-1', 'bad;id', '  k22-5-12 ']);
+  assert.equal(serialized, 't1,a-1,k22-1-1,k22-5-12');
+  assert.deepEqual(deserializeTaskIds(serialized), ['t1', 'a-1', 'k22-1-1', 'k22-5-12']);
+
+  const parsed = parseCookieString('mdl_theme=dark; mdl_done_tasks=t1%2Ck22-1-1; mdl_cookie_notice=1');
+  assert.equal(parsed.mdl_theme, 'dark');
+  assert.equal(parsed.mdl_done_tasks, 't1,k22-1-1');
+  assert.equal(parsed.mdl_cookie_notice, '1');
+
+  const header = buildCookieHeader('mdl_theme', 'dark', {
+    maxAgeSeconds: 3600,
+    path: '/',
+    sameSite: 'Lax',
+    secure: true,
+  });
+  assert.equal(header, 'mdl_theme=dark; Max-Age=3600; Path=/; SameSite=Lax; Secure');
 });
