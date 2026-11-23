@@ -521,7 +521,7 @@ export default function StudyApp() {
                 </h2>
                 <p className="text-xs text-[#6b6256] dark:text-[#94A3B8] mt-0.5">
                   {activeTab === 'tematy'
-                    ? 'Wykłady 1–6 · dr Paweł Caban'
+                    ? 'Wykłady 1–6 · Matematyka Dyskretna'
                     : activeExamSet
                     ? `${activeExamSet.tabLabel} · ${activeExamSet.questions.length} zadań`
                     : 'Kalkulator, relacje i wzór A4'}
@@ -918,10 +918,10 @@ export default function StudyApp() {
 
                 <p className="mt-3 text-sm sm:text-base leading-relaxed text-[#44403c] dark:text-[#CBD5E1] max-w-3xl">
                   Kompletne opracowanie tematów 1–4 z listy zadań{' '}
-                  <span className="font-mono text-xs sm:text-sm">Zad_MDL</span> oraz wykładów dr.
-                  Pawła Cabana, połączone z pełnymi, krok po kroku rozwiązanymi arkuszami z
-                  kolokwium 2025/26 (30 zadań) oraz 2022 (5 arkuszy, 60 zadań) wraz ze zdjęciami
-                  oryginalnych kartek.
+                  <span className="font-mono text-xs sm:text-sm">Zad_MDL</span> oraz wykładów z
+                  przedmiotu, połączone z pełnymi, krok po kroku rozwiązanymi arkuszami z kolokwium
+                  2025/26 (30 zadań) oraz 2022 (5 arkuszy, 60 zadań) wraz ze zdjęciami oryginalnych
+                  kartek.
                 </p>
 
                 <div className="mt-6 flex flex-wrap items-center gap-3">

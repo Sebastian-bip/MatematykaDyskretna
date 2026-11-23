@@ -453,7 +453,7 @@ export const EXAM_SETS_2022_PART_A: ExamSet[] = [
         glossary: [
           {
             term: 'Konwencja ℕ = {1, 2, 3, …}',
-            definition: 'W kursie dr. Pawła Cabana 0 NIE należy do ℕ! Dzięki temu równanie x = 3x nie ma żadnego rozwiązania w ℕ.',
+            definition: 'W konwencji tego przedmiotu 0 NIE należy do ℕ! Dzięki temu równanie x = 3x nie ma żadnego rozwiązania w ℕ.',
           },
           {
             term: 'Asymetryczność',

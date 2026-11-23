@@ -785,7 +785,7 @@ export default function ToolsAndCheatSheet({
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="max-w-2xl">
                 <h2 className="text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
-                  Oficjalne zasady kolokwium (WFiIS UŁ, dr Paweł Caban)
+                  Oficjalne zasady kolokwium (WFiIS UŁ)
                 </h2>
                 <p className="mt-1 text-xs sm:text-sm leading-relaxed text-[#44403c] dark:text-[#CBD5E1]">
                   Na kolokwium wolno korzystać z jednej strony A4 <strong>własnoręcznie zapisanych notatek</strong> (bez kserokopii i wydruków). Poniższa ściąga zbiera komplet wzorów z działów 1–4 do przepisania na własną kartkę A4 lub wydrukowania do powtórki.
