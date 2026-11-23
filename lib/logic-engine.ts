@@ -102,7 +102,7 @@ export function tokenizeFormula(input: string): Token[] {
  * 1. ¬ (highest, right-associative)
  * 2. ∧, ∨ (left-associative; ∧ binds same/tighter, we parse ∧ then ∨ or left-to-right per course convention)
  * 3. →, ↔ (lowest; right-associative for →)
- * Note: In Caban's course, ∧ and ∨ are above → and ↔.
+ * Note: In this course, ∧ and ∨ bind tighter than → and ↔.
  */
 export function parseInfixFormula(input: string): FormulaNode {
   const tokens = tokenizeFormula(input);
@@ -614,7 +614,7 @@ export interface QuestionScoreResult {
 }
 
 /**
- * Zasady punktacji kolokwium (Paweł Caban, 2026/27):
+ * Zasady punktacji kolokwium (2026/27):
  * - Każde zadanie zawiera 1 lub 2 poprawne odpowiedzi.
  * - Za każdą poprawnie zaznaczoną odpowiedź: +1 pkt.
  * - Za każdą niepoprawną odpowiedź: -1 pkt.

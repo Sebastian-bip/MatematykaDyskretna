@@ -77,7 +77,7 @@ export const TOPIC_UNITS: TopicUnit[] = [
         ],
         treeFormula: '(q <-> p) -> (q -> !(p & q))',
         photoSrc: '/assets/aistudio/IMG_20261005_123552046_ffd46e98.jpg',
-        photoLabel: 'Slajd z wykładu dr. Pawła Cabana: drzewo struktury (q ↔ p) → (q → ¬(p ∧ q))',
+        photoLabel: 'Slajd z wykładu: drzewo struktury (q ↔ p) → (q → ¬(p ∧ q))',
         tip: 'Na kolokwium (zadania 4 i 5) sprawdź szybko spójnik główny — to on ZAWSZE stoi jako pierwszy znak notacji polskiej!',
       },
       {
@@ -258,7 +258,7 @@ export const TOPIC_UNITS: TopicUnit[] = [
       {
         term: 'UWAGA: ℕ = {1, 2, 3, …} (BEZ zera!)',
         definition:
-          'Na wykładzie dr. Pawła Cabana zero NIE należy do liczb naturalnych! To kluczowy haczyk w zadaniach z kwantyfikatorami (np. x·0 < y dla każdego y ∈ ℕ jest PRAWDĄ!).',
+          'W ramach tego kursu zero NIE należy do liczb naturalnych! To kluczowy haczyk w zadaniach z kwantyfikatorami (np. x·0 < y dla każdego y ∈ ℕ jest PRAWDĄ!).',
       },
       {
         term: 'Kolejność różnych kwantyfikatorów',
