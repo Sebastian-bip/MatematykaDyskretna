@@ -231,7 +231,7 @@ export default function ToolsAndCheatSheet({
   };
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 print:space-y-0">
       {/* Sub-navigation Switcher (hidden on print) */}
       <div className="no-print rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-4 sm:p-5">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -779,7 +779,7 @@ export default function ToolsAndCheatSheet({
           TOOL 3: PRINTABLE LEGALNA ŚCIĄGA A4 + EXAM RULES
          ================================================================ */}
       {activeTool === 'sciaga' && (
-        <div className="space-y-5">
+        <div className="space-y-5 print:space-y-0">
           {/* Print CTA & Official Rules Card */}
           <section className="no-print rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-6">
             <div className="flex flex-wrap items-start justify-between gap-4">
@@ -830,7 +830,7 @@ export default function ToolsAndCheatSheet({
 
           {/* Printable A4 Sheet Container */}
           <section className="print-sheet rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-7">
-            <div className="flex items-baseline justify-between border-b border-[#e4dccb] dark:border-[#2B333E] pb-3 mb-4">
+            <div className="print-sheet-header flex items-baseline justify-between border-b border-[#e4dccb] dark:border-[#2B333E] pb-3 mb-4">
               <div>
                 <h2 className="text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
                   Ściąga A4 — Matematyka dyskretna z logiką (Działy 1–4)
@@ -841,9 +841,9 @@ export default function ToolsAndCheatSheet({
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
+            <div className="print-sheet-grid grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
               {/* Block 1 */}
-              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
+              <div className="print-sheet-card rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
                   1. Rachunek zdań (Zadania 1–7)
                 </h3>
@@ -865,7 +865,7 @@ export default function ToolsAndCheatSheet({
               </div>
 
               {/* Block 2 */}
-              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
+              <div className="print-sheet-card rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
                   2. Rachunek predykatów (Zadanie 12)
                 </h3>
@@ -886,7 +886,7 @@ export default function ToolsAndCheatSheet({
               </div>
 
               {/* Block 3 */}
-              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
+              <div className="print-sheet-card rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
                   3. Zbiory i relacje (Zadania 9, 10, 11)
                 </h3>
@@ -912,7 +912,7 @@ export default function ToolsAndCheatSheet({
               </div>
 
               {/* Block 4 */}
-              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
+              <div className="print-sheet-card rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
                   4. Algebry Boole’a (Zadanie 8)
                 </h3>
