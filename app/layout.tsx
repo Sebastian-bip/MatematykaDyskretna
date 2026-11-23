@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -50,6 +52,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
