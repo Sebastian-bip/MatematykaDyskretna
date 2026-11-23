@@ -755,8 +755,8 @@ export default function StudyApp() {
                   },
                   {
                     id: 'sciaga' as ToolSubTab,
-                    label: 'Legalna ściąga A4',
-                    sub: 'Wzory z działów 1–4 i zasady',
+                    label: 'Wzór ściągi A4',
+                    sub: 'Wzory do przepisania ręcznie + zasady',
                     icon: FileText,
                   },
                 ].map((item) => {
@@ -881,7 +881,7 @@ export default function StudyApp() {
                   </div>
                 </div>
                 <p className="text-[11px] text-[#6b6256] dark:text-[#94A3B8]">
-                  Czas: 75 min · Dozwolona 1 strona A4 własnoręcznej ściągi · ℕ = {'{1, 2, …}'}.
+                  Czas: 75 min · Dozwolona 1 strona A4 <strong>własnoręcznych</strong> notatek (bez wydruków i ksera!) · ℕ = {'{1, 2, …}'}.
                 </p>
               </div>
             </details>

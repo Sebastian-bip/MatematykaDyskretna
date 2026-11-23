@@ -3,10 +3,12 @@
 import React, { useMemo, useState } from 'react';
 import {
   AlertCircle,
+  AlertTriangle,
   Calculator,
   CheckCircle2,
   FileText,
   Network,
+  PenLine,
   Printer,
   XCircle,
 } from 'lucide-react';
@@ -240,7 +242,7 @@ export default function ToolsAndCheatSheet({
               Narzędzia i legalna ściąga A4
             </h1>
             <p className="text-xs sm:text-sm text-[#6b6256] dark:text-[#94A3B8] mt-0.5">
-              Sprawdź własne formuły, przetestuj własności relacji lub wydrukuj wzór ściągi na kolokwium.
+              Sprawdź własne formuły, przetestuj własności relacji lub skorzystaj ze wzoru ściągi A4 do własnoręcznego przepisania na kartkę.
             </p>
           </div>
         </div>
@@ -780,15 +782,42 @@ export default function ToolsAndCheatSheet({
          ================================================================ */}
       {activeTool === 'sciaga' && (
         <div className="space-y-5 print:space-y-0">
+          {/* Prominent Warning: Handwritten Only! */}
+          <div
+            role="alert"
+            className="no-print rounded-2xl border-2 border-amber-400/90 dark:border-amber-500/60 bg-amber-50 dark:bg-amber-950/35 p-4 sm:p-5"
+          >
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                <AlertTriangle className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <h2 className="text-sm sm:text-base font-bold text-amber-950 dark:text-amber-100">
+                  UWAGA: Wydrukowanej ściągi NIE wolno wnieść na kolokwium!
+                </h2>
+                <p className="mt-1 text-xs sm:text-sm leading-relaxed text-amber-900 dark:text-amber-200/90">
+                  Zgodnie z zasadami przedmiotu na kolokwium dozwolona jest{' '}
+                  <strong>jedna strona A4 wyłącznie własnoręcznych notatek</strong> (bez wydruków
+                  komputerowych i bez kserokopii). Poniższa strona A4 oraz przycisk drukowania
+                  służą <strong>wyłącznie jako gotowy przykład do przepisania ręcznie</strong> na
+                  własną kartkę lub do powtórki w domu.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Print CTA & Official Rules Card */}
           <section className="no-print rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-6">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="max-w-2xl">
-                <h2 className="text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
-                  Oficjalne zasady kolokwium (WFiIS UŁ)
+                <h2 className="flex items-center gap-2 text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
+                  <PenLine className="w-4 h-4 text-[#1D4ED8] dark:text-[#60A5FA]" />
+                  Wzór ściągi do przepisania ręcznie + zasady kolokwium
                 </h2>
                 <p className="mt-1 text-xs sm:text-sm leading-relaxed text-[#44403c] dark:text-[#CBD5E1]">
-                  Na kolokwium wolno korzystać z jednej strony A4 <strong>własnoręcznie zapisanych notatek</strong> (bez kserokopii i wydruków). Poniższa ściąga zbiera komplet wzorów z działów 1–4 do przepisania na własną kartkę A4 lub wydrukowania do powtórki.
+                  Przepisz poniższe wzory własnoręcznie na jedną stronę kartki A4 — samo przepisanie
+                  świetnie utrwala prawa logiczne, własności relacji i tożsamości Boole’a. Możesz też
+                  wydrukować ten wzór wyłącznie jako pomoc do nauki w domu.
                 </p>
               </div>
               <button
@@ -797,7 +826,7 @@ export default function ToolsAndCheatSheet({
                 className="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-medium rounded-lg bg-[#1D4ED8] hover:bg-[#1E40AF] text-white transition-colors whitespace-nowrap shrink-0"
               >
                 <Printer className="w-4 h-4" />
-                Drukuj ściągę (A4)
+                Drukuj wzór do przepisania (A4)
               </button>
             </div>
 
@@ -809,14 +838,17 @@ export default function ToolsAndCheatSheet({
                 <ul className="mt-2 space-y-1.5 list-disc pl-4 text-[#44403c] dark:text-[#CBD5E1]">
                   <li>12 zadań testowych wielokrotnego wyboru · czas trwania: 75 minut.</li>
                   <li>Obowiązkowa legitymacja studencka (lub dowód tożsamości) na ławce.</li>
-                  <li>Legalna ściąga: max 1 strona A4 zapisana ręcznie (brak urządzeń elektronicznych).</li>
-                  <li>Zakaz opuszczania sali przed oddaniem arkusza.</li>
+                  <li>
+                    <strong>Legalna ściąga:</strong> max 1 strona A4 zapisana{' '}
+                    <strong>własnoręcznie</strong> (nie wydrukowana i nie skserowana!).
+                  </li>
+                  <li>Zakaz urządzeń elektronicznych oraz opuszczania sali przed oddaniem arkusza.</li>
                 </ul>
               </div>
 
               <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
                 <div className="font-semibold text-[#1c1917] dark:text-[#F1F5F9]">
-                  Punktacja i progi ocen (2026/27)
+                  Punktacja i progi ocen
                 </div>
                 <ul className="mt-2 space-y-1.5 list-disc pl-4 text-[#44403c] dark:text-[#CBD5E1] tabular-nums">
                   <li>W każdym zadaniu poprawne są 1 lub 2 odpowiedzi (nigdy 0 ani 4).</li>
@@ -828,105 +860,144 @@ export default function ToolsAndCheatSheet({
             </div>
           </section>
 
-          {/* Printable A4 Sheet Container */}
+          {/* Printable A4 Example Sheet Container */}
           <section className="print-sheet rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-7">
-            <div className="print-sheet-header flex items-baseline justify-between border-b border-[#e4dccb] dark:border-[#2B333E] pb-3 mb-4">
+            <div className="print-sheet-header flex flex-wrap items-baseline justify-between gap-2 border-b border-[#e4dccb] dark:border-[#2B333E] pb-3 mb-4">
               <div>
                 <h2 className="text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
-                  Ściąga A4 — Matematyka dyskretna z logiką (Działy 1–4)
+                  Wzór ściągi A4 do przepisania ręcznie — Matematyka dyskretna z logiką (Działy 1–4)
                 </h2>
                 <p className="text-xs text-[#6b6256] dark:text-[#94A3B8]">
-                  I rok Informatyki · WFiIS UŁ · Konwencja kursu: ℕ = {'{1, 2, 3, …}'} (bez zera)
+                  I rok Informatyki · WFiIS UŁ · Konwencja: ℕ = {'{1, 2, 3, …}'} (bez zera) ·{' '}
+                  <strong>UWAGA: wydruku ani ksera nie wolno wnieść na kolokwium — przepisz ręcznie!</strong>
                 </p>
               </div>
             </div>
 
             <div className="print-sheet-grid grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
-              {/* Block 1 */}
+              {/* Block 1: Propositional Logic */}
               <div className="print-sheet-card rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
-                  1. Rachunek zdań (Zadania 1–7)
+                  1. Rachunek zdań (Zadania 1–7, raport, składnia)
                 </h3>
                 <div>
-                  <strong>Priorytety:</strong> <span className="font-mono">¬ &gt; ∧, ∨ &gt; →, ↔</span>
+                  <strong>Priorytety:</strong> <span className="font-mono">¬ &gt; ∧, ∨ &gt; →, ↔</span> ·{' '}
+                  <strong>Składnia:</strong> atomy + stała <span className="font-mono">⊥</span> (zawsze 0); <span className="font-mono">¬</span> tylko PRZED formułą; zakaz <span className="font-mono">p¬q</span>, <span className="font-mono">∧→</span>.
                 </div>
                 <div className="font-mono space-y-0.5 text-[#1c1917] dark:text-[#E2E8F0]">
-                  <div>p → q ≡ ¬p ∨ q &nbsp;(fałsz TYLKO dla 1 → 0)</div>
-                  <div>p ↔ q ≡ (p → q) ∧ (q → p) &nbsp;(prawda gdy p = q)</div>
-                  <div>¬(p ∧ q) ≡ ¬p ∨ ¬q &nbsp;·&nbsp; ¬(p ∨ q) ≡ ¬p ∧ ¬q</div>
+                  <div>p → q ≡ ¬p ∨ q &nbsp;(0 TYLKO dla 1 → 0)</div>
                   <div>¬(p → q) ≡ p ∧ ¬q &nbsp;·&nbsp; p → q ≡ ¬q → ¬p</div>
+                  <div>p ↔ q ≡ (p → q) ∧ (q → p) ≡ (p ∧ q) ∨ (¬p ∧ ¬q)</div>
+                  <div>¬(p ↔ q) ≡ (p ∧ ¬q) ∨ (¬p ∧ q) &nbsp;(XOR)</div>
+                  <div>¬(p ∧ q) ≡ ¬p ∨ ¬q &nbsp;·&nbsp; ¬(p ∨ q) ≡ ¬p ∧ ¬q</div>
+                  <div>(p ∧ q) → r ≡ p → (q → r) &nbsp;(eksportacja)</div>
+                  <div>p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r) &nbsp;(rozdzielność)</div>
+                  <div>p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r) &nbsp;(rozdzielność)</div>
+                  <div>p ∨ (p ∧ q) ≡ p &nbsp;·&nbsp; p ∧ (p ∨ q) ≡ p &nbsp;(pochł.)</div>
+                  <div>p ∧ ¬p ≡ ⊥ (0) · p ∨ ¬p ≡ 1 · φ ↔ ¬φ ≡ 0</div>
                 </div>
                 <div>
-                  <strong>Notacja polska (pre-order):</strong> korzeń → lewe poddrzewo → prawe poddrzewo. Odczyt z prawej do lewej: łącz 2 ostatnie wyrażenia dla spójnika binarnego, 1 dla <span className="font-mono">¬</span>.
+                  <strong>Klasyfikacja:</strong> Tautologia = same 1 (zawsze spełnialna!). Sprzeczna = same 0. Spełnialna nie-tautologia = ma choć jedno 1 i jedno 0.
                 </div>
                 <div>
-                  <strong>DPN / KPN:</strong> DPN = alternatywa koniunkcji (wiersze z wynikiem 1, gdzie 1→p, 0→¬p). KPN = koniunkcja alternatyw (wiersze z wynikiem 0, gdzie 0→p, 1→¬p).
+                  <strong>Notacja polska (pre-order):</strong> korzeń → lewe → prawe. Uwaga:{' '}
+                  <span className="font-mono">→→ABC</span> = <span className="font-mono">(A→B)→C</span>, a{' '}
+                  <span className="font-mono">→A→BC</span> = <span className="font-mono">A→(B→C)</span>.
+                </div>
+                <div>
+                  <strong>DPN / KPN:</strong> DPN = ∨ z ∧ (wiersze = 1: 1→p, 0→¬p; samotny literał <span className="font-mono">¬p ≡ ¬p∧¬p</span>). KPN = ∧ z ∨ (wiersze = 0: 0→p, 1→¬p).
+                </div>
+                <div>
+                  <strong>Raport policji:</strong> szukaj łańcucha <span className="font-mono">X → Y → ¬X</span> (wymusza <span className="font-mono">X = 0</span>); sprawdź czy 3. zmienna jest jednoznaczna!
                 </div>
               </div>
 
-              {/* Block 2 */}
+              {/* Block 2: Predicate Logic */}
               <div className="print-sheet-card rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
-                  2. Rachunek predykatów (Zadanie 12)
+                  2. Rachunek predykatów i kwantyfikatory (Zadanie 12)
                 </h3>
                 <div className="font-mono space-y-0.5 text-[#1c1917] dark:text-[#E2E8F0]">
-                  <div>¬(∀x φ(x)) ≡ ∃x ¬φ(x)</div>
-                  <div>¬(∃x φ(x)) ≡ ∀x ¬φ(x)</div>
+                  <div>¬(∀x φ(x)) ≡ ∃x ¬φ(x) &nbsp;·&nbsp; ¬(∃x φ(x)) ≡ ∀x ¬φ(x)</div>
+                  <div>∀x ∀y φ(x,y) ≡ ∀y ∀x φ(x,y) &nbsp;(zamiana OK)</div>
+                  <div>∃x ∃y φ(x,y) ≡ ∃y ∃x φ(x,y) &nbsp;(zamiana OK)</div>
                   <div>∃y ∀x φ(x,y) ⇒ ∀x ∃y φ(x,y) &nbsp;(odwrotnie NIE!)</div>
+                  <div>∀x (φ ∧ ψ) ≡ (∀x φ) ∧ (∀x ψ)</div>
+                  <div>∃x (φ ∨ ψ) ≡ (∃x φ) ∨ (∃x ψ)</div>
+                  <div>(∀x φ) ∨ (∀x ψ) ⇒ ∀x (φ ∨ ψ) &nbsp;(odwrotnie NIE!)</div>
+                  <div>∃x (φ ∧ ψ) ⇒ (∃x φ) ∧ (∃x ψ) &nbsp;(odwrotnie NIE!)</div>
                 </div>
                 <div>
-                  <strong>Uwaga na dziedziny (UŁ):</strong>
+                  <strong>Dziedziny liczbowe (kluczowa konwencja!):</strong>
                   <div className="font-mono mt-0.5">
-                    ℕ = {'{1, 2, 3, …}'} (bez 0!) · ℤ = {'{…, −1, 0, 1, …}'} · ℝ
+                    ℕ = {'{1, 2, 3, …}'} (BEZ 0!) · ℤ = {'{…, −1, 0, 1, …}'} · ℚ · ℝ
                   </div>
                 </div>
                 <div>
-                  <strong>Strategia gry:</strong> <span className="font-mono">∀x ∃y</span> oznacza, że <span className="font-mono">y</span> może zależeć od <span className="font-mono">x</span> (np. <span className="font-mono">y = x² + 1</span>). Natomiast <span className="font-mono">∃y ∀x</span> wymaga JEDNEJ stałej liczby <span className="font-mono">y</span> dobrej dla wszystkich <span className="font-mono">x</span> naraz!
+                  <strong>Strategia gry:</strong> <span className="font-mono">∀x ∃y</span> → <span className="font-mono">y</span> może zależeć od <span className="font-mono">x</span> (np. <span className="font-mono">y = x²</span>, <span className="font-mono">y = −(x+1) ∈ ℤ</span>, <span className="font-mono">k = 0 ∈ ℤ</span>). Natomiast <span className="font-mono">∃y ∀x</span> wymaga JEDNEJ stałej liczby <span className="font-mono">y</span> dobrej dla wszystkich <span className="font-mono">x</span> naraz!
+                </div>
+                <div>
+                  <strong>Szybkie obalanie:</strong> zdanie <span className="font-mono">∀x P(x)</span> obalisz 1 kontrprzykładem (np. <span className="font-mono">x = 1</span> lub <span className="font-mono">x = |y| + 1</span>); dla <span className="font-mono">x² + y² ≤ 0</span> w ℝ weź <span className="font-mono">x = 1 ⇒ 1 + y² ≥ 1 &gt; 0</span>.
                 </div>
               </div>
 
-              {/* Block 3 */}
+              {/* Block 3: Sets & Relations */}
               <div className="print-sheet-card rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
-                  3. Zbiory i relacje (Zadania 9, 10, 11)
+                  3. Zbiory i relacje (Zadania 9, 10, 11, 12)
                 </h3>
                 <div className="font-mono space-y-0.5 text-[#1c1917] dark:text-[#E2E8F0]">
-                  <div>A \ B = A ∩ B&apos; &nbsp;·&nbsp; A \ (B ∪ C) = (A \ B) ∩ (A \ C) = (A \ B) \ C</div>
+                  <div>A \ B = A ∩ B&apos; &nbsp;·&nbsp; (A ∪ B)&apos; = A&apos; ∩ B&apos; &nbsp;·&nbsp; (A ∩ B)&apos; = A&apos; ∪ B&apos;</div>
+                  <div>A \ (B ∪ C) = (A \ B) ∩ (A \ C) = (A \ B) \ C</div>
                   <div>A \ (B ∩ C) = (A \ B) ∪ (A \ C)</div>
                   <div>A \ (B \ C) = (A \ B) ∪ (A ∩ C)</div>
-                  <div>|P(A)| = 2^|A| &nbsp;·&nbsp; ∅ ⊆ A zawsze</div>
+                  <div>(A ∪ B) \ C = (A \ C) ∪ (B \ C)</div>
+                  <div>(A ∩ B) \ C = (A \ C) ∩ B = (A \ C) ∩ (B \ C)</div>
+                  <div>A △ B = (A \ B) ∪ (B \ A) = (A ∪ B) \ (A ∩ B)</div>
+                  <div>|P(A)| = 2^|A| · |A × B| = |A|·|B| · ∅ ⊆ A zawsze</div>
+                </div>
+                <div>
+                  <strong>Pułapka:</strong> <span className="font-mono">(A \ B) \ C ≠ A \ (B \ C)</span> — testuj podstawiając <span className="font-mono">∅</span> i <span className="font-mono">{'{1}'}</span>!
                 </div>
                 <div>
                   <strong>7 własności relacji R ⊆ X × X:</strong>
-                  <ul className="mt-1 space-y-0.5 font-mono">
+                  <ul className="mt-0.5 space-y-0.5 font-mono">
                     <li>Zwrotna: ∀x (xRx) · Przeciwzwrotna: ∀x ¬(xRx)</li>
                     <li>Symetryczna: xRy ⇒ yRx · Asymetryczna: xRy ⇒ ¬(yRx)</li>
-                    <li>Antysymetryczna: (xRy ∧ yRx) ⇒ x = y</li>
-                    <li>Przechodnia: (xRy ∧ yRz) ⇒ xRz</li>
-                    <li>Spójna: x ≠ y ⇒ (xRy ∨ yRx)</li>
+                    <li>Antysymetryczna: (xRy ∧ yRx) ⇒ x = y (dopuszcza xRx!)</li>
+                    <li>Przechodnia: (xRy ∧ yRz) ⇒ xRz (x,y,z mogą być równe!)</li>
+                    <li>Spójna: ∀x,y: x ≠ y ⇒ (xRy ∨ yRx) (tylko dla x ≠ y!)</li>
                   </ul>
                 </div>
                 <div>
-                  <strong>Klasy:</strong> Równoważność = zwr + sym + przech. Porządek częściowy = zwr + antysym + przech. Liniowy = częściowy + spójna.
+                  <strong>Klasy:</strong> Równoważność = zwr+sym+przech (klasy <span className="font-mono">[x]</span> rozłączne). Porządek częśc. = zwr+antysym+przech (np. <span className="font-mono">x | y</span>). Liniowy = częśc.+spójna. Uwaga: <span className="font-mono">x = y</span> to jednocześnie równoważność i porządek!
                 </div>
               </div>
 
-              {/* Block 4 */}
+              {/* Block 4: Boolean Algebras */}
               <div className="print-sheet-card rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
-                  4. Algebry Boole’a (Zadanie 8)
+                  4. Algebry Boole’a (Zadanie 8 / 9)
                 </h3>
                 <div className="font-mono space-y-0.5 text-[#1c1917] dark:text-[#E2E8F0]">
-                  <div>Idempotentność: x + x = x &nbsp;·&nbsp; x · x = x² = x</div>
-                  <div>Elementy 0 i 1: x + 0 = x · x · 1 = x · x + 1 = 1 · x · 0 = 0</div>
-                  <div>Dopełnienie: x + x&apos; = 1 &nbsp;·&nbsp; x · x&apos; = 0 &nbsp;·&nbsp; (x&apos;)&apos; = x</div>
+                  <div>Przemienność: x + y = y + x &nbsp;·&nbsp; x · y = y · x</div>
+                  <div>Łączność: (x+y)+z = x+(y+z) &nbsp;·&nbsp; (xy)z = x(yz)</div>
+                  <div>Idempotentność: x + x = x &nbsp;·&nbsp; x · x = x</div>
+                  <div>Elementy 0 i 1: x+0 = x · x·1 = x · x+1 = 1 · x·0 = 0</div>
+                  <div>Dopełnienie: x + x&apos; = 1 · x · x&apos; = 0 · (x&apos;)&apos; = x · 0&apos;=1</div>
                   <div>Absorpcja: x + x · y = x &nbsp;·&nbsp; x · (x + y) = x</div>
-                  <div>Pochłanianie z dopełn.: x + x&apos; · y = x + y</div>
+                  <div>Pochłanianie z dopełn.: x + x&apos;·y = x + y · x(x&apos;+y) = xy</div>
+                  <div>Sklejanie: x·y + x·y&apos; = x &nbsp;·&nbsp; (x + y)(x + y&apos;) = x</div>
                   <div>De Morgan: (x + y)&apos; = x&apos; · y&apos; &nbsp;·&nbsp; (x · y)&apos; = x&apos; + y&apos;</div>
-                  <div>Rozdzielność (+ względem ·): x + y · z = (x + y)(x + z)</div>
+                  <div>Rozdzielność: x(y+z) = xy+xz · x+yz = (x+y)(x+z)</div>
+                  <div>Równoważność: (x + y&apos;)(x&apos; + y) = x·y + x&apos;·y&apos;</div>
+                  <div>Częste tożsamości: x+y+x&apos;y&apos; = 1 · xy(x&apos;+y&apos;) = 0</div>
                 </div>
                 <div>
-                  <strong>Szybki test na kolokwium (tw. Stone’a):</strong> Tożsamość zachodzi w KAŻDEJ algebrze Boole’a wtedy i tylko wtedy, gdy zachodzi w dwuelementowej algebrze {'{0, 1}'}! Podstaw 4 pary (0,0), (0,1), (1,0), (1,1) i sprawdź L = P.
+                  <strong>Szybki test na kolokwium (tw. Stone’a):</strong> Tożsamość zachodzi w KAŻDEJ algebrze Boole’a ⇔ zachodzi w dwuelementowej algebrze <span className="font-mono">{'{0, 1}'}</span>! Podstaw 4 pary <span className="font-mono">(0,0), (0,1), (1,0), (1,1)</span> i sprawdź <span className="font-mono">L = P</span>. Jedna różna para od razu obala tożsamość!
+                </div>
+                <div>
+                  <strong>Konwersja ze zbiorów / logiki:</strong> <span className="font-mono">+</span> ↔ <span className="font-mono">∪</span> ↔ <span className="font-mono">∨</span> · <span className="font-mono">·</span> ↔ <span className="font-mono">∩</span> ↔ <span className="font-mono">∧</span> · <span className="font-mono">x&apos;</span> ↔ <span className="font-mono">A&apos;</span> ↔ <span className="font-mono">¬p</span> · <span className="font-mono">0</span> ↔ <span className="font-mono">∅</span> · <span className="font-mono">1</span> ↔ <span className="font-mono">X</span>.
                 </div>
               </div>
             </div>
