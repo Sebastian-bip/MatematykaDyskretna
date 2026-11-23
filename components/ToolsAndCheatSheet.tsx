@@ -233,13 +233,13 @@ export default function ToolsAndCheatSheet({
   return (
     <div className="space-y-5">
       {/* Sub-navigation Switcher (hidden on print) */}
-      <div className="no-print rounded-2xl border border-[#E6E2D8] dark:border-[#2B333E] bg-white dark:bg-[#161B22] p-4 sm:p-5">
+      <div className="no-print rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-4 sm:p-5">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <h1 className="text-lg sm:text-xl font-bold tracking-tight text-[#1C1B18] dark:text-[#F8FAFC]">
+            <h1 className="text-lg sm:text-xl font-bold tracking-tight text-[#1c1917] dark:text-[#F8FAFC]">
               Narzędzia i legalna ściąga A4
             </h1>
-            <p className="text-xs sm:text-sm text-[#6B665C] dark:text-[#94A3B8] mt-0.5">
+            <p className="text-xs sm:text-sm text-[#6b6256] dark:text-[#94A3B8] mt-0.5">
               Sprawdź własne formuły, przetestuj własności relacji lub wydrukuj wzór ściągi na kolokwium.
             </p>
           </div>
@@ -248,7 +248,7 @@ export default function ToolsAndCheatSheet({
         <div
           role="tablist"
           aria-label="Wybór narzędzia"
-          className="mt-4 flex flex-wrap gap-1.5 p-1 rounded-xl bg-[#F6F4EF] dark:bg-[#0F1419] border border-[#EAE6DC] dark:border-[#242C37]"
+          className="mt-4 flex flex-wrap gap-1.5 p-1 rounded-xl bg-[#f5efe2] dark:bg-[#0F1419] border border-[#e4dccb] dark:border-[#242C37]"
         >
           <button
             type="button"
@@ -257,8 +257,8 @@ export default function ToolsAndCheatSheet({
             onClick={() => onSelectTool('kalkulator')}
             className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg border whitespace-nowrap shrink-0 ${
               activeTool === 'kalkulator'
-                ? 'bg-white border-[#D8D2C5] text-[#1D4ED8] dark:bg-[#1E3A8A]/40 dark:border-[#3B82F6] dark:text-[#93C5FD] shadow-xs'
-                : 'border-transparent text-[#4A463E] dark:text-[#94A3B8] hover:text-[#1C1B18] dark:hover:text-white'
+                ? 'bg-[#fffdf7] border-[#d6ccb8] text-[#1D4ED8] dark:bg-[#1E3A8A]/40 dark:border-[#3B82F6] dark:text-[#93C5FD] shadow-xs'
+                : 'border-transparent text-[#44403c] dark:text-[#94A3B8] hover:text-[#1c1917] dark:hover:text-white'
             }`}
           >
             <Calculator className="w-4 h-4" />
@@ -272,8 +272,8 @@ export default function ToolsAndCheatSheet({
             onClick={() => onSelectTool('relacje')}
             className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg border whitespace-nowrap shrink-0 ${
               activeTool === 'relacje'
-                ? 'bg-white border-[#D8D2C5] text-[#1D4ED8] dark:bg-[#1E3A8A]/40 dark:border-[#3B82F6] dark:text-[#93C5FD] shadow-xs'
-                : 'border-transparent text-[#4A463E] dark:text-[#94A3B8] hover:text-[#1C1B18] dark:hover:text-white'
+                ? 'bg-[#fffdf7] border-[#d6ccb8] text-[#1D4ED8] dark:bg-[#1E3A8A]/40 dark:border-[#3B82F6] dark:text-[#93C5FD] shadow-xs'
+                : 'border-transparent text-[#44403c] dark:text-[#94A3B8] hover:text-[#1c1917] dark:hover:text-white'
             }`}
           >
             <Network className="w-4 h-4" />
@@ -287,8 +287,8 @@ export default function ToolsAndCheatSheet({
             onClick={() => onSelectTool('sciaga')}
             className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg border whitespace-nowrap shrink-0 ${
               activeTool === 'sciaga'
-                ? 'bg-white border-[#D8D2C5] text-[#1D4ED8] dark:bg-[#1E3A8A]/40 dark:border-[#3B82F6] dark:text-[#93C5FD] shadow-xs'
-                : 'border-transparent text-[#4A463E] dark:text-[#94A3B8] hover:text-[#1C1B18] dark:hover:text-white'
+                ? 'bg-[#fffdf7] border-[#d6ccb8] text-[#1D4ED8] dark:bg-[#1E3A8A]/40 dark:border-[#3B82F6] dark:text-[#93C5FD] shadow-xs'
+                : 'border-transparent text-[#44403c] dark:text-[#94A3B8] hover:text-[#1c1917] dark:hover:text-white'
             }`}
           >
             <FileText className="w-4 h-4" />
@@ -302,13 +302,13 @@ export default function ToolsAndCheatSheet({
          ================================================================ */}
       {activeTool === 'kalkulator' && (
         <div className="space-y-5">
-          <section className="rounded-2xl border border-[#E6E2D8] dark:border-[#2B333E] bg-white dark:bg-[#161B22] p-5 sm:p-6">
+          <section className="rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-6">
             <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-              <h2 className="text-base sm:text-lg font-bold text-[#1C1B18] dark:text-[#F8FAFC]">
+              <h2 className="text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
                 Wpisz formułę zdaniową
               </h2>
 
-              <div className="inline-flex rounded-lg border border-[#E2DDD2] dark:border-[#2F3946] bg-[#FBF9F5] dark:bg-[#0F1419] p-0.5">
+              <div className="inline-flex rounded-lg border border-[#d6ccb8] dark:border-[#2F3946] bg-[#f7f1e3] dark:bg-[#0F1419] p-0.5">
                 <button
                   type="button"
                   onClick={() => {
@@ -322,7 +322,7 @@ export default function ToolsAndCheatSheet({
                   className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 ${
                     logicMode === 'infix'
                       ? 'bg-[#1D4ED8] text-white'
-                      : 'text-[#4A463E] dark:text-[#94A3B8] hover:text-[#1C1B18] dark:hover:text-white'
+                      : 'text-[#44403c] dark:text-[#94A3B8] hover:text-[#1c1917] dark:hover:text-white'
                   }`}
                 >
                   Zapis klasyczny
@@ -340,7 +340,7 @@ export default function ToolsAndCheatSheet({
                   className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 ${
                     logicMode === 'polish'
                       ? 'bg-[#1D4ED8] text-white'
-                      : 'text-[#4A463E] dark:text-[#94A3B8] hover:text-[#1C1B18] dark:hover:text-white'
+                      : 'text-[#44403c] dark:text-[#94A3B8] hover:text-[#1c1917] dark:hover:text-white'
                   }`}
                 >
                   Notacja polska
@@ -350,7 +350,7 @@ export default function ToolsAndCheatSheet({
 
             <label
               htmlFor="logic-formula-input"
-              className="block text-xs font-medium text-[#6B665C] dark:text-[#94A3B8] mb-1.5"
+              className="block text-xs font-medium text-[#6b6256] dark:text-[#94A3B8] mb-1.5"
             >
               {logicMode === 'infix'
                 ? 'Akceptuje symbole (¬, ∧, ∨, →, ↔, ⊥) oraz skróty ASCII (!, &, |, ->, <->)'
@@ -367,12 +367,12 @@ export default function ToolsAndCheatSheet({
                   ? 'np. (p ∨ ¬q) ↔ ¬(¬p ∧ q)'
                   : 'np. ↔ ∨ p ¬q ¬ ∧ ¬p q'
               }
-              className="w-full rounded-xl border border-[#D8D2C5] dark:border-[#334155] bg-[#FBF9F5] dark:bg-[#0F1419] px-4 py-3 font-mono text-sm sm:text-base text-[#1C1B18] dark:text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] dark:focus:ring-[#60A5FA]"
+              className="w-full rounded-xl border border-[#d6ccb8] dark:border-[#334155] bg-[#f7f1e3] dark:bg-[#0F1419] px-4 py-3 font-mono text-sm sm:text-base text-[#1c1917] dark:text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] dark:focus:ring-[#60A5FA]"
             />
 
             {/* Quick Symbol Insert Bar */}
             <div className="mt-3 flex flex-wrap items-center gap-1.5">
-              <span className="text-xs text-[#6B665C] dark:text-[#94A3B8] mr-1">
+              <span className="text-xs text-[#6b6256] dark:text-[#94A3B8] mr-1">
                 Wstaw symbol:
               </span>
               {QUICK_SYMBOLS.map((sym) => (
@@ -380,7 +380,7 @@ export default function ToolsAndCheatSheet({
                   key={sym}
                   type="button"
                   onClick={() => setFormulaInput((prev) => `${prev}${sym}`)}
-                  className="px-2.5 py-1 font-mono text-xs font-semibold rounded-md border border-[#E2DDD2] dark:border-[#2F3946] bg-[#FBF9F5] dark:bg-[#12171F] text-[#1C1B18] dark:text-[#E2E8F0] hover:border-[#1D4ED8] dark:hover:border-[#60A5FA] transition-colors"
+                  className="px-2.5 py-1 font-mono text-xs font-semibold rounded-md border border-[#d6ccb8] dark:border-[#2F3946] bg-[#f7f1e3] dark:bg-[#12171F] text-[#1c1917] dark:text-[#E2E8F0] hover:border-[#1D4ED8] dark:hover:border-[#60A5FA] transition-colors"
                 >
                   {sym}
                 </button>
@@ -388,15 +388,15 @@ export default function ToolsAndCheatSheet({
               <button
                 type="button"
                 onClick={() => setFormulaInput('')}
-                className="ml-auto text-xs font-medium text-[#6B665C] dark:text-[#94A3B8] hover:text-[#1C1B18] dark:hover:text-white transition-colors"
+                className="ml-auto text-xs font-medium text-[#6b6256] dark:text-[#94A3B8] hover:text-[#1c1917] dark:hover:text-white transition-colors"
               >
                 Wyczyść
               </button>
             </div>
 
             {/* Presets from Kolokwium */}
-            <div className="mt-4 pt-4 border-t border-[#EFECE4] dark:border-[#242C37]">
-              <div className="text-xs font-medium text-[#6B665C] dark:text-[#94A3B8] mb-2">
+            <div className="mt-4 pt-4 border-t border-[#ede6d7] dark:border-[#242C37]">
+              <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8] mb-2">
                 Przykłady z kolokwium 2025/26 i wykładów:
               </div>
               <div className="flex flex-wrap gap-2">
@@ -408,7 +408,7 @@ export default function ToolsAndCheatSheet({
                       setLogicMode(preset.mode);
                       setFormulaInput(preset.value);
                     }}
-                    className="px-3 py-1.5 text-xs font-medium rounded-lg border border-[#E2DDD2] dark:border-[#2F3946] bg-white dark:bg-[#131922] text-[#38352E] dark:text-[#CBD5E1] hover:border-[#1D4ED8] hover:text-[#1D4ED8] dark:hover:border-[#60A5FA] dark:hover:text-[#60A5FA] transition-colors whitespace-nowrap shrink-0"
+                    className="px-3 py-1.5 text-xs font-medium rounded-lg border border-[#d6ccb8] dark:border-[#2F3946] bg-[#fffdf7] dark:bg-[#131922] text-[#44403c] dark:text-[#CBD5E1] hover:border-[#1D4ED8] hover:text-[#1D4ED8] dark:hover:border-[#60A5FA] dark:hover:text-[#60A5FA] transition-colors whitespace-nowrap shrink-0"
                   >
                     {preset.label}
                   </button>
@@ -435,20 +435,20 @@ export default function ToolsAndCheatSheet({
           {logicResult.analysis && (
             <div className="space-y-5">
               {/* Summary Metrics & Translations */}
-              <section className="rounded-2xl border border-[#E6E2D8] dark:border-[#2B333E] bg-white dark:bg-[#161B22] p-5 sm:p-6">
+              <section className="rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-6">
                 {(() => {
                   const info = classificationLabel(logicResult.analysis.classification);
                   const ones = logicResult.analysis.rows.filter((r) => r.result === 1).length;
                   const total = logicResult.analysis.rows.length;
                   return (
-                    <div className="pb-4 border-b border-[#EFECE4] dark:border-[#242C37]">
-                      <div className="text-xs font-medium text-[#6B665C] dark:text-[#94A3B8]">
+                    <div className="pb-4 border-b border-[#ede6d7] dark:border-[#242C37]">
+                      <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8]">
                         Klasyfikacja semantyczna ({ones} / {total} wierszy daje wartość 1)
                       </div>
                       <div className={`mt-1 text-lg sm:text-xl font-bold ${info.tone}`}>
                         {info.title}
                       </div>
-                      <p className="mt-1 text-xs sm:text-sm text-[#4A463E] dark:text-[#CBD5E1]">
+                      <p className="mt-1 text-xs sm:text-sm text-[#44403c] dark:text-[#CBD5E1]">
                         {info.desc}
                       </p>
                     </div>
@@ -456,44 +456,44 @@ export default function ToolsAndCheatSheet({
                 })()}
 
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                    <div className="text-xs font-medium text-[#6B665C] dark:text-[#94A3B8]">
+                  <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                    <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8]">
                       Notacja polska (zapis zwarty · jak na arkuszu)
                     </div>
-                    <div className="mt-1.5 font-mono text-sm sm:text-base font-semibold text-[#1C1B18] dark:text-[#F8FAFC] overflow-x-auto">
+                    <div className="mt-1.5 font-mono text-sm sm:text-base font-semibold text-[#1c1917] dark:text-[#F8FAFC] overflow-x-auto">
                       {logicResult.analysis.polish}
                     </div>
-                    <div className="mt-1 font-mono text-xs text-[#6B665C] dark:text-[#94A3B8] overflow-x-auto">
+                    <div className="mt-1 font-mono text-xs text-[#6b6256] dark:text-[#94A3B8] overflow-x-auto">
                       Rozstrzelona: {logicResult.analysis.polishSpaced}
                     </div>
                   </div>
 
-                  <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                    <div className="text-xs font-medium text-[#6B665C] dark:text-[#94A3B8]">
+                  <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                    <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8]">
                       Zapis klasyczny (pełne nawiasowanie)
                     </div>
-                    <div className="mt-1.5 font-mono text-sm sm:text-base font-semibold text-[#1C1B18] dark:text-[#F8FAFC] overflow-x-auto">
+                    <div className="mt-1.5 font-mono text-sm sm:text-base font-semibold text-[#1c1917] dark:text-[#F8FAFC] overflow-x-auto">
                       {logicResult.analysis.infix}
                     </div>
-                    <div className="mt-1 text-xs text-[#6B665C] dark:text-[#94A3B8]">
+                    <div className="mt-1 text-xs text-[#6b6256] dark:text-[#94A3B8]">
                       Zmienne: {logicResult.analysis.variables.join(', ') || 'brak (stała)'}
                     </div>
                   </div>
 
-                  <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                    <div className="text-xs font-medium text-[#6B665C] dark:text-[#94A3B8]">
+                  <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                    <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8]">
                       Kanoniczna DPN (dysjunkcyjna postać normalna)
                     </div>
-                    <div className="mt-1.5 font-mono text-xs sm:text-sm text-[#1C1B18] dark:text-[#F1F5F9] overflow-x-auto">
+                    <div className="mt-1.5 font-mono text-xs sm:text-sm text-[#1c1917] dark:text-[#F1F5F9] overflow-x-auto">
                       {logicResult.analysis.dnf}
                     </div>
                   </div>
 
-                  <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                    <div className="text-xs font-medium text-[#6B665C] dark:text-[#94A3B8]">
+                  <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                    <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8]">
                       Kanoniczna KPN (koniunkcyjna postać normalna)
                     </div>
-                    <div className="mt-1.5 font-mono text-xs sm:text-sm text-[#1C1B18] dark:text-[#F1F5F9] overflow-x-auto">
+                    <div className="mt-1.5 font-mono text-xs sm:text-sm text-[#1c1917] dark:text-[#F1F5F9] overflow-x-auto">
                       {logicResult.analysis.cnf}
                     </div>
                   </div>
@@ -504,23 +504,23 @@ export default function ToolsAndCheatSheet({
               </section>
 
               {/* Truth Table */}
-              <section className="rounded-2xl border border-[#E6E2D8] dark:border-[#2B333E] bg-white dark:bg-[#161B22] p-5 sm:p-6">
-                <h3 className="text-base font-bold text-[#1C1B18] dark:text-[#F8FAFC] mb-3">
+              <section className="rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-6">
+                <h3 className="text-base font-bold text-[#1c1917] dark:text-[#F8FAFC] mb-3">
                   Pełna tabela prawdziwości ({logicResult.analysis.rows.length} wartościowań)
                 </h3>
-                <div className="overflow-x-auto rounded-xl border border-[#E4DFD4] dark:border-[#2B3544]">
+                <div className="overflow-x-auto rounded-xl border border-[#e4dccb] dark:border-[#2B3544]">
                   <table className="w-full text-center border-collapse font-mono text-xs sm:text-sm tabular-nums">
                     <thead>
-                      <tr className="border-b border-[#E6E2D8] dark:border-[#2B333E] bg-[#F6F4EF] dark:bg-[#18202B]">
+                      <tr className="border-b border-[#e4dccb] dark:border-[#2B333E] bg-[#f5efe2] dark:bg-[#18202B]">
                         {logicResult.analysis.variables.map((v) => (
                           <th
                             key={v}
-                            className="px-3 py-2.5 font-semibold text-[#1C1B18] dark:text-[#F1F5F9]"
+                            className="px-3 py-2.5 font-semibold text-[#1c1917] dark:text-[#F1F5F9]"
                           >
                             {v}
                           </th>
                         ))}
-                        <th className="px-4 py-2.5 font-semibold text-[#1D4ED8] dark:text-[#60A5FA] bg-[#EFF6FF] dark:bg-[#1E3A8A]/30">
+                        <th className="px-4 py-2.5 font-semibold text-[#1D4ED8] dark:text-[#60A5FA] bg-[#eef4fb] dark:bg-[#1E3A8A]/30">
                           Wynik φ
                         </th>
                       </tr>
@@ -529,12 +529,12 @@ export default function ToolsAndCheatSheet({
                       {logicResult.analysis.rows.map((row, idx) => (
                         <tr
                           key={idx}
-                          className="border-b last:border-b-0 border-[#EFECE4] dark:border-[#222B36]"
+                          className="border-b last:border-b-0 border-[#ede6d7] dark:border-[#222B36]"
                         >
                           {logicResult.analysis!.variables.map((v) => (
                             <td
                               key={v}
-                              className="px-3 py-2 text-[#38352E] dark:text-[#CBD5E1]"
+                              className="px-3 py-2 text-[#44403c] dark:text-[#CBD5E1]"
                             >
                               {row.valuation[v]}
                             </td>
@@ -542,7 +542,7 @@ export default function ToolsAndCheatSheet({
                           <td
                             className={`px-4 py-2 font-bold ${
                               row.result === 1
-                                ? 'bg-[#ECFDF5] dark:bg-[#064E3B]/35 text-[#059669] dark:text-[#34D399]'
+                                ? 'bg-[#ebf7f0] dark:bg-[#064E3B]/35 text-[#059669] dark:text-[#34D399]'
                                 : 'bg-[#FEF2F2] dark:bg-[#7F1D1D]/25 text-[#DC2626] dark:text-[#F87171]'
                             }`}
                           >
@@ -564,11 +564,11 @@ export default function ToolsAndCheatSheet({
          ================================================================ */}
       {activeTool === 'relacje' && (
         <div className="space-y-5">
-          <section className="rounded-2xl border border-[#E6E2D8] dark:border-[#2B333E] bg-white dark:bg-[#161B22] p-5 sm:p-6">
-            <h2 className="text-base sm:text-lg font-bold text-[#1C1B18] dark:text-[#F8FAFC]">
+          <section className="rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-6">
+            <h2 className="text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
               Sprawdź 7 własności relacji z kontrprzykładami
             </h2>
-            <p className="mt-1 text-xs sm:text-sm text-[#6B665C] dark:text-[#94A3B8]">
+            <p className="mt-1 text-xs sm:text-sm text-[#6b6256] dark:text-[#94A3B8]">
               Wybierz gotową relację z kolokwium 2025/26 lub edytuj zbiór X i listę par relacji R.
             </p>
 
@@ -583,8 +583,8 @@ export default function ToolsAndCheatSheet({
                     onClick={() => applyRelationPreset(preset)}
                     className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors whitespace-nowrap shrink-0 ${
                       isActive
-                        ? 'border-[#1D4ED8] bg-[#EFF6FF] text-[#1D4ED8] dark:border-[#60A5FA] dark:bg-[#1E3A8A]/35 dark:text-[#BFDBFE]'
-                        : 'border-[#E2DDD2] dark:border-[#2F3946] bg-white dark:bg-[#131922] text-[#38352E] dark:text-[#CBD5E1] hover:border-[#1D4ED8]'
+                        ? 'border-[#1D4ED8] bg-[#eef4fb] text-[#1D4ED8] dark:border-[#60A5FA] dark:bg-[#1E3A8A]/35 dark:text-[#BFDBFE]'
+                        : 'border-[#d6ccb8] dark:border-[#2F3946] bg-[#fffdf7] dark:bg-[#131922] text-[#44403c] dark:text-[#CBD5E1] hover:border-[#1D4ED8]'
                     }`}
                   >
                     {preset.label}
@@ -597,7 +597,7 @@ export default function ToolsAndCheatSheet({
               <div>
                 <label
                   htmlFor="rel-elements-input"
-                  className="block text-xs font-medium text-[#6B665C] dark:text-[#94A3B8] mb-1.5"
+                  className="block text-xs font-medium text-[#6b6256] dark:text-[#94A3B8] mb-1.5"
                 >
                   Zbiór bazowy X (elementy rozdzielone przecinkami)
                 </label>
@@ -609,14 +609,14 @@ export default function ToolsAndCheatSheet({
                     setActiveRelPreset('custom');
                     setElementsInput(e.target.value);
                   }}
-                  className="w-full rounded-xl border border-[#D8D2C5] dark:border-[#334155] bg-[#FBF9F5] dark:bg-[#0F1419] px-3.5 py-2.5 font-mono text-sm text-[#1C1B18] dark:text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                  className="w-full rounded-xl border border-[#d6ccb8] dark:border-[#334155] bg-[#f7f1e3] dark:bg-[#0F1419] px-3.5 py-2.5 font-mono text-sm text-[#1c1917] dark:text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="rel-pairs-input"
-                  className="block text-xs font-medium text-[#6B665C] dark:text-[#94A3B8] mb-1.5"
+                  className="block text-xs font-medium text-[#6b6256] dark:text-[#94A3B8] mb-1.5"
                 >
                   Pary należące do relacji R (format: (x,y), np. (1,2), (2,4))
                 </label>
@@ -628,7 +628,7 @@ export default function ToolsAndCheatSheet({
                     setActiveRelPreset('custom');
                     setPairsInput(e.target.value);
                   }}
-                  className="w-full rounded-xl border border-[#D8D2C5] dark:border-[#334155] bg-[#FBF9F5] dark:bg-[#0F1419] px-3.5 py-2.5 font-mono text-xs sm:text-sm text-[#1C1B18] dark:text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
+                  className="w-full rounded-xl border border-[#d6ccb8] dark:border-[#334155] bg-[#f7f1e3] dark:bg-[#0F1419] px-3.5 py-2.5 font-mono text-xs sm:text-sm text-[#1c1917] dark:text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]"
                 />
               </div>
             </div>
@@ -648,11 +648,11 @@ export default function ToolsAndCheatSheet({
           )}
 
           {relationResult.analysis && (
-            <section className="rounded-2xl border border-[#E6E2D8] dark:border-[#2B333E] bg-white dark:bg-[#161B22] p-5 sm:p-6 space-y-5">
+            <section className="rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-6 space-y-5">
               {/* High-level Classification Summary */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                  <div className="text-xs text-[#6B665C] dark:text-[#94A3B8]">
+                <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                  <div className="text-xs text-[#6b6256] dark:text-[#94A3B8]">
                     Relacja równoważności
                   </div>
                   <div className="mt-1 flex items-center gap-1.5 text-sm font-bold">
@@ -663,18 +663,18 @@ export default function ToolsAndCheatSheet({
                       </>
                     ) : (
                       <>
-                        <XCircle className="w-4 h-4 text-[#6B665C]" />
-                        <span className="text-[#4A463E] dark:text-[#94A3B8]">NIE</span>
+                        <XCircle className="w-4 h-4 text-[#6b6256]" />
+                        <span className="text-[#44403c] dark:text-[#94A3B8]">NIE</span>
                       </>
                     )}
                   </div>
-                  <div className="mt-1 text-xs text-[#6B665C] dark:text-[#94A3B8]">
+                  <div className="mt-1 text-xs text-[#6b6256] dark:text-[#94A3B8]">
                     Zwrotna + symetryczna + przechodnia
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                  <div className="text-xs text-[#6B665C] dark:text-[#94A3B8]">
+                <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                  <div className="text-xs text-[#6b6256] dark:text-[#94A3B8]">
                     Porządek częściowy
                   </div>
                   <div className="mt-1 flex items-center gap-1.5 text-sm font-bold">
@@ -685,18 +685,18 @@ export default function ToolsAndCheatSheet({
                       </>
                     ) : (
                       <>
-                        <XCircle className="w-4 h-4 text-[#6B665C]" />
-                        <span className="text-[#4A463E] dark:text-[#94A3B8]">NIE</span>
+                        <XCircle className="w-4 h-4 text-[#6b6256]" />
+                        <span className="text-[#44403c] dark:text-[#94A3B8]">NIE</span>
                       </>
                     )}
                   </div>
-                  <div className="mt-1 text-xs text-[#6B665C] dark:text-[#94A3B8]">
+                  <div className="mt-1 text-xs text-[#6b6256] dark:text-[#94A3B8]">
                     Zwrotna + antysymetryczna + przechodnia
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                  <div className="text-xs text-[#6B665C] dark:text-[#94A3B8]">
+                <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                  <div className="text-xs text-[#6b6256] dark:text-[#94A3B8]">
                     Porządek liniowy
                   </div>
                   <div className="mt-1 flex items-center gap-1.5 text-sm font-bold">
@@ -707,12 +707,12 @@ export default function ToolsAndCheatSheet({
                       </>
                     ) : (
                       <>
-                        <XCircle className="w-4 h-4 text-[#6B665C]" />
-                        <span className="text-[#4A463E] dark:text-[#94A3B8]">NIE</span>
+                        <XCircle className="w-4 h-4 text-[#6b6256]" />
+                        <span className="text-[#44403c] dark:text-[#94A3B8]">NIE</span>
                       </>
                     )}
                   </div>
-                  <div className="mt-1 text-xs text-[#6B665C] dark:text-[#94A3B8]">
+                  <div className="mt-1 text-xs text-[#6b6256] dark:text-[#94A3B8]">
                     Porządek częściowy + spójna
                   </div>
                 </div>
@@ -720,24 +720,24 @@ export default function ToolsAndCheatSheet({
 
               {/* 7-Property Detailed Table */}
               <div>
-                <div className="text-xs font-medium text-[#6B665C] dark:text-[#94A3B8] mb-2">
+                <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8] mb-2">
                   Analiza dla |X| = {relationResult.analysis.elements.length}, |R| ={' '}
                   {relationResult.analysis.pairs.length} par
                 </div>
-                <div className="overflow-x-auto rounded-xl border border-[#E4DFD4] dark:border-[#2B3544]">
+                <div className="overflow-x-auto rounded-xl border border-[#e4dccb] dark:border-[#2B3544]">
                   <table className="w-full text-left border-collapse text-xs sm:text-sm">
                     <thead>
-                      <tr className="border-b border-[#E6E2D8] dark:border-[#2B333E] bg-[#F6F4EF] dark:bg-[#18202B]">
-                        <th className="px-3.5 py-2.5 font-semibold text-[#1C1B18] dark:text-[#F1F5F9]">
+                      <tr className="border-b border-[#e4dccb] dark:border-[#2B333E] bg-[#f5efe2] dark:bg-[#18202B]">
+                        <th className="px-3.5 py-2.5 font-semibold text-[#1c1917] dark:text-[#F1F5F9]">
                           Własność
                         </th>
-                        <th className="px-3.5 py-2.5 font-semibold text-[#1C1B18] dark:text-[#F1F5F9]">
+                        <th className="px-3.5 py-2.5 font-semibold text-[#1c1917] dark:text-[#F1F5F9]">
                           Definicja
                         </th>
-                        <th className="px-3.5 py-2.5 font-semibold text-[#1C1B18] dark:text-[#F1F5F9]">
+                        <th className="px-3.5 py-2.5 font-semibold text-[#1c1917] dark:text-[#F1F5F9]">
                           Wynik
                         </th>
-                        <th className="px-3.5 py-2.5 font-semibold text-[#1C1B18] dark:text-[#F1F5F9]">
+                        <th className="px-3.5 py-2.5 font-semibold text-[#1c1917] dark:text-[#F1F5F9]">
                           Uzasadnienie / kontrprzykład
                         </th>
                       </tr>
@@ -746,12 +746,12 @@ export default function ToolsAndCheatSheet({
                       {relationResult.analysis.properties.map((prop) => (
                         <tr
                           key={prop.key}
-                          className="border-b last:border-b-0 border-[#EFECE4] dark:border-[#222B36]"
+                          className="border-b last:border-b-0 border-[#ede6d7] dark:border-[#222B36]"
                         >
-                          <td className="px-3.5 py-2.5 font-semibold text-[#1C1B18] dark:text-[#F1F5F9] whitespace-nowrap">
+                          <td className="px-3.5 py-2.5 font-semibold text-[#1c1917] dark:text-[#F1F5F9] whitespace-nowrap">
                             {prop.label}
                           </td>
-                          <td className="px-3.5 py-2.5 font-mono text-xs text-[#4A463E] dark:text-[#CBD5E1] whitespace-nowrap">
+                          <td className="px-3.5 py-2.5 font-mono text-xs text-[#44403c] dark:text-[#CBD5E1] whitespace-nowrap">
                             {prop.definition}
                           </td>
                           <td className="px-3.5 py-2.5 font-bold whitespace-nowrap">
@@ -761,7 +761,7 @@ export default function ToolsAndCheatSheet({
                               <span className="text-[#DC2626] dark:text-[#F87171]">NIE</span>
                             )}
                           </td>
-                          <td className="px-3.5 py-2.5 text-[#38352E] dark:text-[#CBD5E1]">
+                          <td className="px-3.5 py-2.5 text-[#44403c] dark:text-[#CBD5E1]">
                             {prop.reason}
                           </td>
                         </tr>
@@ -781,13 +781,13 @@ export default function ToolsAndCheatSheet({
       {activeTool === 'sciaga' && (
         <div className="space-y-5">
           {/* Print CTA & Official Rules Card */}
-          <section className="no-print rounded-2xl border border-[#E6E2D8] dark:border-[#2B333E] bg-white dark:bg-[#161B22] p-5 sm:p-6">
+          <section className="no-print rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-6">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="max-w-2xl">
-                <h2 className="text-base sm:text-lg font-bold text-[#1C1B18] dark:text-[#F8FAFC]">
+                <h2 className="text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
                   Oficjalne zasady kolokwium (WFiIS UŁ, dr Paweł Caban)
                 </h2>
-                <p className="mt-1 text-xs sm:text-sm leading-relaxed text-[#4A463E] dark:text-[#CBD5E1]">
+                <p className="mt-1 text-xs sm:text-sm leading-relaxed text-[#44403c] dark:text-[#CBD5E1]">
                   Na kolokwium wolno korzystać z jednej strony A4 <strong>własnoręcznie zapisanych notatek</strong> (bez kserokopii i wydruków). Poniższa ściąga zbiera komplet wzorów z działów 1–4 do przepisania na własną kartkę A4 lub wydrukowania do powtórki.
                 </p>
               </div>
@@ -802,11 +802,11 @@ export default function ToolsAndCheatSheet({
             </div>
 
             <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-              <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                <div className="font-semibold text-[#1C1B18] dark:text-[#F1F5F9]">
+              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                <div className="font-semibold text-[#1c1917] dark:text-[#F1F5F9]">
                   Przebieg i wymagania (Zasady pisania kolokwium)
                 </div>
-                <ul className="mt-2 space-y-1.5 list-disc pl-4 text-[#4A463E] dark:text-[#CBD5E1]">
+                <ul className="mt-2 space-y-1.5 list-disc pl-4 text-[#44403c] dark:text-[#CBD5E1]">
                   <li>12 zadań testowych wielokrotnego wyboru · czas trwania: 75 minut.</li>
                   <li>Obowiązkowa legitymacja studencka (lub dowód tożsamości) na ławce.</li>
                   <li>Legalna ściąga: max 1 strona A4 zapisana ręcznie (brak urządzeń elektronicznych).</li>
@@ -814,11 +814,11 @@ export default function ToolsAndCheatSheet({
                 </ul>
               </div>
 
-              <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4">
-                <div className="font-semibold text-[#1C1B18] dark:text-[#F1F5F9]">
+              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4">
+                <div className="font-semibold text-[#1c1917] dark:text-[#F1F5F9]">
                   Punktacja i progi ocen (2026/27)
                 </div>
-                <ul className="mt-2 space-y-1.5 list-disc pl-4 text-[#4A463E] dark:text-[#CBD5E1] tabular-nums">
+                <ul className="mt-2 space-y-1.5 list-disc pl-4 text-[#44403c] dark:text-[#CBD5E1] tabular-nums">
                   <li>W każdym zadaniu poprawne są 1 lub 2 odpowiedzi (nigdy 0 ani 4).</li>
                   <li>+1 pkt za każdą poprawną · −1 pkt za błędną · 0 pkt za pustą kratkę.</li>
                   <li>Progi: 9–10 → 3 · 11–12 → 3+ · 13–14 → 4 · 15–16 → 4+ · 17–18 → 5.</li>
@@ -829,13 +829,13 @@ export default function ToolsAndCheatSheet({
           </section>
 
           {/* Printable A4 Sheet Container */}
-          <section className="print-sheet rounded-2xl border border-[#E6E2D8] dark:border-[#2B333E] bg-white dark:bg-[#161B22] p-5 sm:p-7">
-            <div className="flex items-baseline justify-between border-b border-[#E6E2D8] dark:border-[#2B333E] pb-3 mb-4">
+          <section className="print-sheet rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-5 sm:p-7">
+            <div className="flex items-baseline justify-between border-b border-[#e4dccb] dark:border-[#2B333E] pb-3 mb-4">
               <div>
-                <h2 className="text-base sm:text-lg font-bold text-[#1C1B18] dark:text-[#F8FAFC]">
+                <h2 className="text-base sm:text-lg font-bold text-[#1c1917] dark:text-[#F8FAFC]">
                   Ściąga A4 — Matematyka dyskretna z logiką (Działy 1–4)
                 </h2>
-                <p className="text-xs text-[#6B665C] dark:text-[#94A3B8]">
+                <p className="text-xs text-[#6b6256] dark:text-[#94A3B8]">
                   I rok Informatyki · WFiIS UŁ · Konwencja kursu: ℕ = {'{1, 2, 3, …}'} (bez zera)
                 </p>
               </div>
@@ -843,14 +843,14 @@ export default function ToolsAndCheatSheet({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs leading-relaxed">
               {/* Block 1 */}
-              <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4 space-y-2">
+              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
                   1. Rachunek zdań (Zadania 1–7)
                 </h3>
                 <div>
                   <strong>Priorytety:</strong> <span className="font-mono">¬ &gt; ∧, ∨ &gt; →, ↔</span>
                 </div>
-                <div className="font-mono space-y-0.5 text-[#1C1B18] dark:text-[#E2E8F0]">
+                <div className="font-mono space-y-0.5 text-[#1c1917] dark:text-[#E2E8F0]">
                   <div>p → q ≡ ¬p ∨ q &nbsp;(fałsz TYLKO dla 1 → 0)</div>
                   <div>p ↔ q ≡ (p → q) ∧ (q → p) &nbsp;(prawda gdy p = q)</div>
                   <div>¬(p ∧ q) ≡ ¬p ∨ ¬q &nbsp;·&nbsp; ¬(p ∨ q) ≡ ¬p ∧ ¬q</div>
@@ -865,11 +865,11 @@ export default function ToolsAndCheatSheet({
               </div>
 
               {/* Block 2 */}
-              <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4 space-y-2">
+              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
                   2. Rachunek predykatów (Zadanie 12)
                 </h3>
-                <div className="font-mono space-y-0.5 text-[#1C1B18] dark:text-[#E2E8F0]">
+                <div className="font-mono space-y-0.5 text-[#1c1917] dark:text-[#E2E8F0]">
                   <div>¬(∀x φ(x)) ≡ ∃x ¬φ(x)</div>
                   <div>¬(∃x φ(x)) ≡ ∀x ¬φ(x)</div>
                   <div>∃y ∀x φ(x,y) ⇒ ∀x ∃y φ(x,y) &nbsp;(odwrotnie NIE!)</div>
@@ -886,11 +886,11 @@ export default function ToolsAndCheatSheet({
               </div>
 
               {/* Block 3 */}
-              <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4 space-y-2">
+              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
                   3. Zbiory i relacje (Zadania 9, 10, 11)
                 </h3>
-                <div className="font-mono space-y-0.5 text-[#1C1B18] dark:text-[#E2E8F0]">
+                <div className="font-mono space-y-0.5 text-[#1c1917] dark:text-[#E2E8F0]">
                   <div>A \ B = A ∩ B&apos; &nbsp;·&nbsp; A \ (B ∪ C) = (A \ B) ∩ (A \ C) = (A \ B) \ C</div>
                   <div>A \ (B ∩ C) = (A \ B) ∪ (A \ C)</div>
                   <div>A \ (B \ C) = (A \ B) ∪ (A ∩ C)</div>
@@ -912,11 +912,11 @@ export default function ToolsAndCheatSheet({
               </div>
 
               {/* Block 4 */}
-              <div className="rounded-xl border border-[#EAE6DC] dark:border-[#262F3B] bg-[#FBF9F5] dark:bg-[#12171F] p-4 space-y-2">
+              <div className="rounded-xl border border-[#e4dccb] dark:border-[#262F3B] bg-[#f7f1e3] dark:bg-[#12171F] p-4 space-y-2">
                 <h3 className="font-bold text-sm text-[#1D4ED8] dark:text-[#60A5FA]">
                   4. Algebry Boole’a (Zadanie 8)
                 </h3>
-                <div className="font-mono space-y-0.5 text-[#1C1B18] dark:text-[#E2E8F0]">
+                <div className="font-mono space-y-0.5 text-[#1c1917] dark:text-[#E2E8F0]">
                   <div>Idempotentność: x + x = x &nbsp;·&nbsp; x · x = x² = x</div>
                   <div>Elementy 0 i 1: x + 0 = x · x · 1 = x · x + 1 = 1 · x · 0 = 0</div>
                   <div>Dopełnienie: x + x&apos; = 1 &nbsp;·&nbsp; x · x&apos; = 0 &nbsp;·&nbsp; (x&apos;)&apos; = x</div>
