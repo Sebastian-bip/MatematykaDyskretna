@@ -1,0 +1,6 @@
+{
+  "name": "Matematyka Dyskretna z Logiką — Kompendium Kolokwium",
+  "description": "Interaktywne kompendium dla studentów informatyki: tematy 1–4 z Zad_MDL, rozwiązania krok po kroku kolokwiów 2025/26, kalkulator logiki i legalna ściąga A4.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
