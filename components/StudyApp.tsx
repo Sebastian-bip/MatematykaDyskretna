@@ -370,7 +370,7 @@ export default function StudyApp() {
   const totalAllExamQuestions = TOTAL_2025 + TOTAL_2022;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5efe2] text-[#1c1917] dark:bg-[#0F1419] dark:text-[#E6EDF3] transition-colors">
+    <div className="min-h-screen print:min-h-0 print:block print:bg-white flex flex-col bg-[#f5efe2] text-[#1c1917] dark:bg-[#0F1419] dark:text-[#E6EDF3] transition-colors">
       {/* ====================================================================
           TOP NAVIGATION BAR (3-Zone Contract: Brand · Nav Tabs · Controls)
          ==================================================================== */}
@@ -497,7 +497,7 @@ export default function StudyApp() {
       {/* ====================================================================
           MAIN TWO-COLUMN WORKSPACE
          ==================================================================== */}
-      <div className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-5 sm:py-6 grid grid-cols-1 lg:grid-cols-[316px_minmax(0,1fr)] gap-5 sm:gap-6 items-start">
+      <div className="print-workspace flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-5 sm:py-6 grid grid-cols-1 lg:grid-cols-[316px_minmax(0,1fr)] gap-5 sm:gap-6 items-start">
         {/* LEFT STICKY SIDEBAR */}
         <aside
           className={`no-print lg:sticky lg:top-22 space-y-4 ${
