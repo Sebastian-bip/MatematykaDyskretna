@@ -18,6 +18,10 @@ import {
   parseCookieString,
   serializeTaskIds,
 } from './cookies';
+import {
+  formatAllExamSetsAnswersTxt,
+  formatExamSetAnswersTxt,
+} from './answer-key';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -268,4 +272,21 @@ test('Cookie utilities parse, serialize, deserialize, and format cookie headers 
     secure: true,
   });
   assert.equal(header, 'mdl_theme=dark; Max-Age=3600; Path=/; SameSite=Lax; Secure');
+});
+
+test('Answer key TXT formatter outputs clean numbers and letters for Zestaw A, B, C', () => {
+  const txtA = formatExamSetAnswersTxt(EXAM_SETS[0]);
+  assert.ok(txtA.startsWith('Kolokwium 2025/26 — Zestaw A\n'));
+  assert.ok(txtA.includes('\n1. B\n2. C, D\n'));
+  assert.ok(txtA.endsWith('\n12. A, B'));
+
+  const txtC = formatExamSetAnswersTxt(EXAM_SETS[2]);
+  assert.ok(txtC.startsWith('Kolokwium 2025/26 — Zestaw C\n'));
+  assert.ok(txtC.includes('\n7. B\n8. B, D\n'));
+
+  const allTxt = formatAllExamSetsAnswersTxt(EXAM_SETS);
+  assert.ok(allTxt.includes('Kolokwium 2025/26 — Zestaw A'));
+  assert.ok(allTxt.includes('Kolokwium 2025/26 — Zestaw B'));
+  assert.ok(allTxt.includes('Kolokwium 2025/26 — Zestaw C'));
+  assert.ok(allTxt.endsWith('\n'));
 });
