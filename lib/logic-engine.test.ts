@@ -274,15 +274,17 @@ test('Cookie utilities parse, serialize, deserialize, and format cookie headers 
   assert.equal(header, 'mdl_theme=dark; Max-Age=3600; Path=/; SameSite=Lax; Secure');
 });
 
-test('Answer key TXT formatter outputs clean numbers and letters for Zestaw A, B, C', () => {
+test('Answer key TXT formatter outputs full answer texts without ABCD letters for Zestaw A, B, C', () => {
   const txtA = formatExamSetAnswersTxt(EXAM_SETS[0]);
   assert.ok(txtA.startsWith('Kolokwium 2025/26 — Zestaw A\n'));
-  assert.ok(txtA.includes('\n1. B\n2. C, D\n'));
-  assert.ok(txtA.endsWith('\n12. A, B'));
+  assert.ok(txtA.includes('\n1. jest spełnialna i nie jest tautologią\n'));
+  assert.ok(txtA.includes('\n2.\n   - (p ∨ q → p) ∧ (p → q)\n   - (¬p → q) ↔ p ∧ ¬q\n'));
+  assert.ok(txtA.includes("   - x' + x · y + y' = 1\n"));
 
   const txtC = formatExamSetAnswersTxt(EXAM_SETS[2]);
   assert.ok(txtC.startsWith('Kolokwium 2025/26 — Zestaw C\n'));
-  assert.ok(txtC.includes('\n7. B\n8. B, D\n'));
+  assert.ok(txtC.includes('\n7. Świadek był zastraszony i Henry nie popełnił samobójstwa\n'));
+  assert.ok(txtC.includes('   - Jest relacją porządku częściowego\n'));
 
   const allTxt = formatAllExamSetsAnswersTxt(EXAM_SETS);
   assert.ok(allTxt.includes('Kolokwium 2025/26 — Zestaw A'));
