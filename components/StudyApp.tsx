@@ -33,6 +33,7 @@ import { getGradeFromPoints, scoreExamQuestion } from '@/lib/logic-engine';
 import { ExamSetId, MainTabId } from '@/lib/types';
 import CookieBanner from './CookieBanner';
 import ExamQuestionView from './ExamQuestionView';
+import HiddenAnswerKeyView from './HiddenAnswerKeyView';
 import PrivacyCookieModal from './PrivacyCookieModal';
 import ToolsAndCheatSheet, { ToolSubTab } from './ToolsAndCheatSheet';
 import TopicView from './TopicView';
@@ -62,6 +63,7 @@ export default function StudyApp() {
     'kolokwium-2022': 'k22-arkusz-1',
   });
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [hiddenKeyOpen, setHiddenKeyOpen] = useState<boolean>(false);
   const [activeTool, setActiveTool] = useState<ToolSubTab>('kalkulator');
   const [examMode, setExamMode] = useState<boolean>(false);
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -191,6 +193,7 @@ export default function StudyApp() {
   const handleSelectTab = (tab: MainTabId) => {
     setActiveTab(tab);
     setSelectedItemId(null);
+    setHiddenKeyOpen(false);
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -203,6 +206,7 @@ export default function StudyApp() {
     setActiveTab(tabKey);
     setSelectedSetByTab((prev) => ({ ...prev, [tabKey]: setId }));
     setSelectedItemId(openFirstQuestion ? targetSet.questions[0]?.id ?? null : null);
+    setHiddenKeyOpen(false);
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -210,14 +214,29 @@ export default function StudyApp() {
 
   const handleSelectItem = (id: string | null) => {
     setSelectedItemId(id);
+    setHiddenKeyOpen(false);
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
+  const handleToggleHiddenKey = () => {
+    setActiveTab('kolokwium-2025');
+    setSelectedItemId(null);
+    setHiddenKeyOpen((prev) => !prev);
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const isHiddenKeyActive = activeTab === 'kolokwium-2025' && hiddenKeyOpen;
+
   const handleToggleExamMode = () => {
     setExamMode((prev) => {
       const next = !prev;
+      if (next) {
+        setHiddenKeyOpen(false);
+      }
       if (next && (activeTab === 'tematy' || activeTab === 'narzedzia')) {
         setActiveTab('kolokwium-2022');
         const firstSet = EXAM_SETS_2022[0];
@@ -501,7 +520,7 @@ export default function StudyApp() {
         {/* LEFT STICKY SIDEBAR */}
         <aside
           className={`no-print lg:sticky lg:top-22 space-y-4 ${
-            selectedItemId !== null || activeTab === 'narzedzia'
+            selectedItemId !== null || activeTab === 'narzedzia' || isHiddenKeyActive
               ? 'order-2 lg:order-1'
               : 'order-1'
           }`}
@@ -522,6 +541,8 @@ export default function StudyApp() {
                 <p className="text-xs text-[#6b6256] dark:text-[#94A3B8] mt-0.5">
                   {activeTab === 'tematy'
                     ? 'Wykłady 1–6 · Matematyka Dyskretna'
+                    : isHiddenKeyActive
+                    ? 'Klucz odpowiedzi · pliki TXT'
                     : activeExamSet
                     ? `${activeExamSet.tabLabel} · ${activeExamSet.questions.length} zadań`
                     : 'Kalkulator, relacje i wzór A4'}
@@ -530,9 +551,9 @@ export default function StudyApp() {
               {activeTab !== 'narzedzia' && (
                 <button
                   type="button"
-                  onClick={() => setSelectedItemId(null)}
+                  onClick={() => handleSelectItem(null)}
                   className={`text-xs font-medium px-2 py-1 rounded-md transition-colors whitespace-nowrap shrink-0 ${
-                    selectedItemId === null
+                    selectedItemId === null && !isHiddenKeyActive
                       ? 'bg-[#eef4fb] dark:bg-[#1E3A8A]/40 text-[#1D4ED8] dark:text-[#60A5FA]'
                       : 'text-[#6b6256] dark:text-[#94A3B8] hover:text-[#1c1917] dark:hover:text-white'
                   }`}
@@ -545,9 +566,9 @@ export default function StudyApp() {
             {/* Sheet Switcher Pills (for Kolokwium 2025/26 & Kolokwium 2022) */}
             {currentTabExamSets && activeExamSet && (
               <div className="py-3 border-b border-[#ede6d7] dark:border-[#242C37]">
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap items-center gap-1.5">
                   {currentTabExamSets.map((set) => {
-                    const isCurrent = set.id === activeExamSet.id;
+                    const isCurrent = set.id === activeExamSet.id && !isHiddenKeyActive;
                     const doneInSet = set.questions.filter((q) =>
                       completedIds.includes(q.id)
                     ).length;
@@ -569,6 +590,25 @@ export default function StudyApp() {
                       </button>
                     );
                   })}
+                  {activeTab === 'kolokwium-2025' && (
+                    <button
+                      type="button"
+                      onClick={handleToggleHiddenKey}
+                      aria-pressed={isHiddenKeyActive}
+                      aria-label="Pobierz odpowiedzi TXT"
+                      className={`inline-flex items-center justify-center transition-all ${
+                        isHiddenKeyActive
+                          ? 'px-2 py-1.5 rounded-lg text-xs font-mono font-medium border border-[#1D4ED8] bg-[#eef4fb] text-[#1D4ED8] dark:border-[#3B82F6] dark:bg-[#1E3A8A]/40 dark:text-[#93C5FD] opacity-100'
+                          : 'w-4 h-4 rounded-full opacity-15 hover:opacity-85 focus-visible:opacity-100 text-[#6b6256] dark:text-[#94A3B8] hover:bg-[#efe7d6] dark:hover:bg-[#1E2631]'
+                      }`}
+                    >
+                      {isHiddenKeyActive ? (
+                        '.txt'
+                      ) : (
+                        <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                      )}
+                    </button>
+                  )}
                 </div>
                 {yearProgress && (
                   <div className="mt-2 flex items-center justify-between text-[11px] text-[#6b6256] dark:text-[#94A3B8]">
@@ -677,7 +717,7 @@ export default function StudyApp() {
                     <li key={q.id} className="flex items-center gap-1.5">
                       <button
                         type="button"
-                        onClick={() => setSelectedItemId(q.id)}
+                        onClick={() => handleSelectItem(q.id)}
                         className={`flex-1 min-w-0 text-left px-2.5 py-2 rounded-xl border transition-colors ${
                           isSelected
                             ? 'border-[#1D4ED8] bg-[#eef4fb] dark:border-[#3B82F6] dark:bg-[#1E3A8A]/30'
@@ -891,7 +931,7 @@ export default function StudyApp() {
         {/* RIGHT MAIN CONTENT STAGE */}
         <main
           className={`min-w-0 ${
-            selectedItemId !== null || activeTab === 'narzedzia'
+            selectedItemId !== null || activeTab === 'narzedzia' || isHiddenKeyActive
               ? 'order-1 lg:order-2'
               : 'order-2'
           }`}
@@ -1047,9 +1087,17 @@ export default function StudyApp() {
           )}
 
           {/* ================================================================
-              VIEW 2: EXAM SET OVERVIEW OR ACTIVE QUESTION (2025/26 & 2022)
+              VIEW 2: EXAM SET OVERVIEW, ACTIVE QUESTION, OR HIDDEN TXT KEY
              ================================================================ */}
-          {activeExamSet && !activeQuestion && (
+          {isHiddenKeyActive && (
+            <HiddenAnswerKeyView
+              examSets={EXAM_SETS}
+              activeFallbackSetId={selectedSetByTab['kolokwium-2025']}
+              onSelectSet={(setId) => handleSelectExamSet(setId, false)}
+            />
+          )}
+
+          {!isHiddenKeyActive && activeExamSet && !activeQuestion && (
             <div className="space-y-5">
               <section className="rounded-2xl border border-[#e4dccb] dark:border-[#2B333E] bg-[#fffdf7] dark:bg-[#161B22] p-6 sm:p-8 shadow-xs">
                 <div className="text-xs font-medium text-[#6b6256] dark:text-[#94A3B8]">
@@ -1099,6 +1147,16 @@ export default function StudyApp() {
                         </button>
                       );
                     })}
+                    {activeTab === 'kolokwium-2025' && (
+                      <button
+                        type="button"
+                        onClick={handleToggleHiddenKey}
+                        aria-label="Pobierz odpowiedzi TXT"
+                        className="w-4 h-4 inline-flex items-center justify-center rounded-full opacity-15 hover:opacity-85 focus-visible:opacity-100 text-[#6b6256] dark:text-[#94A3B8] hover:bg-[#efe7d6] dark:hover:bg-[#1E2631] transition-all"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                      </button>
+                    )}
                   </div>
                 )}
 
@@ -1172,7 +1230,7 @@ export default function StudyApp() {
             </div>
           )}
 
-          {activeExamSet && activeQuestion && (
+          {!isHiddenKeyActive && activeExamSet && activeQuestion && (
             <ExamQuestionView
               key={activeQuestion.id}
               setLabel={activeExamSet.shortLabel}
